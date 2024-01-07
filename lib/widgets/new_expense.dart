@@ -36,18 +36,21 @@ class _NewExpenseState extends State<NewExpense> {
 
   void _showDialog() {
     if (Platform.isIOS) {
-      showCupertinoDialog(context: context, builder: (ctx) => CupertinoAlertDialog(
-      title: const Text('Invalid input'),
-          content: const Text('Please enter valid title, amount and date'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(ctx);
-              },
-              child: const Text('Okay'),
-            ),
-          ],
-    ));
+      showCupertinoDialog(
+          context: context,
+          builder: (ctx) => CupertinoAlertDialog(
+                title: const Text('Invalid input'),
+                content:
+                    const Text('Please enter valid title, amount and date'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(ctx);
+                    },
+                    child: const Text('Okay'),
+                  ),
+                ],
+              ));
     } else {
       showDialog(
         context: context,
@@ -65,7 +68,6 @@ class _NewExpenseState extends State<NewExpense> {
         ),
       );
     }
-    
   }
 
   void _submitExpenseData() {
